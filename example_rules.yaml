@@ -1,0 +1,55 @@
+# Gmail Organizer Rules — copy to ~/.config/gmail-organizer/rules.yaml
+# Sender values: full address (user@example.com) or domain (example.com)
+
+rules:
+
+  # ── Auto-label by sender/domain ───────────────────────────────────────────
+  labels:
+    - name: "To Read"
+      senders:
+        - "substack.com"
+        - "medium.com"
+        - "mailchimp.com"
+        - "beehiiv.com"
+        - "convertkit.com"
+        - "newsletter@"
+        - "digest@"
+    - name: "Finance"
+      senders:
+        - "paypal.com"
+        - "stripe.com"
+        - "bank@example.com"   # ← replace with your bank
+    - name: "Dev"
+      senders:
+        - "github.com"
+        - "gitlab.com"
+
+  # ── Archive (remove from Inbox, keep in All Mail) ─────────────────────────
+  archive:
+    - older_than_days: 14
+      has_label: "To Read"
+    - older_than_days: 30
+      has_label: "Follow Up"
+
+  # ── Trash (binned immediately) ────────────────────────────────────────────
+  trash:
+    - senders:
+        - "spam-sender@example.com"   # ← replace with your own blocklist
+      subject_contains:
+        - "unsubscribe"
+
+  # ── AI classification (only for messages the rules didn't catch) ──────────
+  ai:
+    provider: ollama          # ollama (local, free) or gemini (Google free tier)
+    model: llama3.2           # your local model (ollama) or gemini model name
+    labels:
+      - "Follow Up"
+      - "Awaiting Response"
+      - "Receipts"
+      - "Personal"
+      - "Work"
+    min_confidence: 55
+
+  # ── Optional push summary (set NTFY_DEFAULT_URL in the script, or use:) ───
+  notify:
+    topic: ""                 # e.g. https://ntfy.sh/your-secret-topic

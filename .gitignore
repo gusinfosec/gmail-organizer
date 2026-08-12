@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.env
+# Credentials and user config — never commit these
+credentials.json
+token.json
+rules.yaml
+*.token
