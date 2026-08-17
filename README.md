@@ -1,5 +1,9 @@
 # 📬 Gmail Organizer
 
+<p align="center">
+  <img src="docs/banner.png" alt="Gmail Organizer — rules-first inbox filing" width="100%">
+</p>
+
 **Your inbox, filed and archived — automatically. Rules first, AI only for
 what's left, and it never reads your email bodies.**
 
@@ -13,6 +17,12 @@ Gmail Organizer tames a messy inbox with three passes:
 
 The result: your Inbox only shows what needs *you* — everything else is filed
 under its label, and nothing is ever deleted unless a rule says so.
+
+## 🎬 Demo
+
+<p align="center">
+  <img src="docs/demo.gif" alt="Gmail Organizer demo — emails labeled, archived and trashed automatically" width="90%">
+</p>
 
 ## 🔒 Privacy
 
